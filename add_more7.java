@@ -1,5 +1,3 @@
-package JDBCµÚÆßÌâ;
-
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -14,17 +12,17 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class add_more7 extends JFrame {// ¸øµ¥ĞĞ²åÈëÔö¼Ó¼àÌıÆ÷£»
-	// ¶¨Òå¸ÃÍ¼ĞÎÖĞËùĞèµÄ×é¼şµÄÒıÓÃ
-	private JButton submit = new JButton("Ìá½»");
+public class add_more7 extends JFrame {// ç»™å•è¡Œæ’å…¥å¢åŠ ç›‘å¬å™¨ï¼›
+	// å®šä¹‰è¯¥å›¾å½¢ä¸­æ‰€éœ€çš„ç»„ä»¶çš„å¼•ç”¨
+	private JButton submit = new JButton("æäº¤");
 	Container contentPane = getContentPane();
 	JPanel buttonpanel = new JPanel();
 	JTextArea area = new JTextArea();
 	JScrollPane js = new JScrollPane(area);
 
-	add_more7(home2 aduc)// ¹¹Ôì·½·¨
+	add_more7(home2 aduc)// æ„é€ æ–¹æ³•
 	{
-		super("¶àĞĞ²åÈë");
+		super("å¤šè¡Œæ’å…¥");
 		contentPane.add(js, BorderLayout.CENTER);
 		contentPane.add(buttonpanel, BorderLayout.SOUTH);
 		buttonpanel.add(submit);
@@ -64,13 +62,13 @@ public class add_more7 extends JFrame {// ¸øµ¥ĞĞ²åÈëÔö¼Ó¼àÌıÆ÷£»
 				values[i] = lines[i].split("[ \t]");
 				if (!values[i][0].equals("")) {
 					if(Integer.parseInt(values[i][0])<=0){
-						JOptionPane.showMessageDialog(null, "±àºÅ±ØĞëÎªÕıÕûÊı" , "µ¥ĞĞ²åÈëÊ§°Ü",
+						JOptionPane.showMessageDialog(null, "ç¼–å·å¿…é¡»ä¸ºæ­£æ•´æ•°" , "å•è¡Œæ’å…¥å¤±è´¥",
 								JOptionPane.ERROR_MESSAGE);
 						return;
 					}
 					for (int j = 0; j < index.size(); j++) {
 						if (Integer.parseInt(values[i][0]) == index.get(j)) {
-							JOptionPane.showMessageDialog(null, "Ô±¹¤±àºÅ" + index.get(j) + "ÒÑÖØ¸´", "²åÈëÊ§°Ü",
+							JOptionPane.showMessageDialog(null, "å‘˜å·¥ç¼–å·" + index.get(j) + "å·²é‡å¤", "æ’å…¥å¤±è´¥",
 									JOptionPane.ERROR_MESSAGE);
 							return;
 						}
@@ -78,7 +76,7 @@ public class add_more7 extends JFrame {// ¸øµ¥ĞĞ²åÈëÔö¼Ó¼àÌıÆ÷£»
 					}
 					stmt.setInt(1, Integer.parseInt(values[i][0]));
 				} else {
-					JOptionPane.showMessageDialog(null, "Ô±¹¤±àºÅ²»ÄÜÎª¿Õ£¡²»·ûºÏÌõ¼şµÄ²åÈëÊ§°Ü£¡", "µ¥ĞĞ²åÈë", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "å‘˜å·¥ç¼–å·ä¸èƒ½ä¸ºç©ºï¼ä¸ç¬¦åˆæ¡ä»¶çš„æ’å…¥å¤±è´¥ï¼", "å•è¡Œæ’å…¥", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 
@@ -102,7 +100,7 @@ public class add_more7 extends JFrame {// ¸øµ¥ĞĞ²åÈëÔö¼Ó¼àÌıÆ÷£»
 
 				if (!values[i][4].equals("")) {
 					if (Integer.parseInt(values[i][4]) <= 0) {
-						JOptionPane.showMessageDialog(null, "¹¤×Ê±ØĞëÎª´óÓÚÁãµÄÕûÊı,²»·ûºÏÌõ¼şµÄ²åÈëÊ§°Ü£¡", "µ¥ĞĞ²åÈë",
+						JOptionPane.showMessageDialog(null, "å·¥èµ„å¿…é¡»ä¸ºå¤§äºé›¶çš„æ•´æ•°,ä¸ç¬¦åˆæ¡ä»¶çš„æ’å…¥å¤±è´¥ï¼", "å•è¡Œæ’å…¥",
 								JOptionPane.ERROR_MESSAGE);
 						return;
 					}
@@ -146,12 +144,12 @@ public class add_more7 extends JFrame {// ¸øµ¥ĞĞ²åÈëÔö¼Ó¼àÌıÆ÷£»
 			SQLState =  e.getSQLState();
 			String Message = e.getMessage();
 			JOptionPane.showMessageDialog(null,
-					"\nSQLCODE:  " + SQLCode + "\nSQLSTATE: " + SQLState + "\nSQLERRM:  " + Message, "±¨´íÄÚÈİ",
+					"\nSQLCODE:  " + SQLCode + "\nSQLSTATE: " + SQLState + "\nSQLERRM:  " + Message, "æŠ¥é”™å†…å®¹",
 					JOptionPane.ERROR_MESSAGE);
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
 		}catch(NumberFormatException e){
-			JOptionPane.showMessageDialog(null,"Ô±¹¤±àºÅºÍ¹¤×Ê±ØĞëÎªÕıÕûÊı","²åÈëÊ§°Ü",JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null,"å‘˜å·¥ç¼–å·å’Œå·¥èµ„å¿…é¡»ä¸ºæ­£æ•´æ•°","æ’å…¥å¤±è´¥",JOptionPane.ERROR_MESSAGE);
 		}
 
 		
